@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\MecanicoController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +26,11 @@ Route::middleware('auth')->group(callback: function () {
     Route::put('/mecanicos/{id}/update', [MecanicoController::class, 'update'])->name('mecanicos.update');
     Route::delete('/mecanicos/{id}/destroy', [MecanicoController::class, 'destroy'])->name('mecanicos.destroy');
     Route::get('/mecanicos/{id}/show', [MecanicoController::class, 'show'])->name('mecanicos.show');
+
+    Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+
+
+    Route::get('/agendamentos', [AgendamentoController::class, 'index'])->name('agendamentos.index');
 
 });
 

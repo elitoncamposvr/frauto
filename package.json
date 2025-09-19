@@ -19,6 +19,9 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@floating-ui/dom": "^1.7.4",
+        "@preline/dropdown": "^3.2.3",
+        "flowbite": "^3.1.2",
         "preline": "^3.2.3"
     }
 }
