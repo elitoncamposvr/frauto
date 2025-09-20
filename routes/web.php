@@ -22,10 +22,9 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/mecanicos', [MecanicoController::class, 'index'])->name('mecanicos.index');
     Route::get('/mecanicos/create', [MecanicoController::class, 'create'])->name('mecanicos.create');
     Route::post('/mecanicos/store', [MecanicoController::class, 'store'])->name('mecanicos.store');
-    Route::get('/mecanicos/{id}/edit', [MecanicoController::class, 'edit'])->name('mecanicos.edit');
-    Route::put('/mecanicos/{id}/update', [MecanicoController::class, 'update'])->name('mecanicos.update');
-    Route::delete('/mecanicos/{id}/destroy', [MecanicoController::class, 'destroy'])->name('mecanicos.destroy');
-    Route::get('/mecanicos/{id}/show', [MecanicoController::class, 'show'])->name('mecanicos.show');
+    Route::get('/mecanicos/edit/{id}', [MecanicoController::class, 'edit'])->name('mecanicos.edit');
+    Route::put('/mecanicos/update/{id}', [MecanicoController::class, 'update'])->name('mecanicos.update');
+    Route::delete('/mecanicos/destroy', [MecanicoController::class, 'destroy'])->name('mecanicos.destroy');
 
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
 

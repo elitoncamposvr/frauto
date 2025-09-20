@@ -14,7 +14,7 @@ class MecanicoController extends Controller
     {
         $mecanicos = Mecanico::with('user')
             ->where('filial_id', auth()->user()->filial_id)
-            ->paginate(10);
+            ->paginate(15);
 
         $mecanicos_count = Mecanico::with('user')
             ->where('filial_id', auth()->user()->filial_id)->count();
@@ -45,11 +45,6 @@ class MecanicoController extends Controller
         return redirect()->route('mecanicos.index')->with('success', 'Mecânico cadastrado com sucesso.');
     }
 
-    public function show(string $id)
-    {
-        //
-    }
-
     public function edit(Mecanico $mecanico)
     {
         $this->authorizeMecanico($mecanico);
@@ -64,8 +59,11 @@ class MecanicoController extends Controller
         //
     }
 
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $mecanico = Mecanico::find($request->id);
+        $mecanico->delete();
+
+        return redirect()->route('mecanicos.index');
     }
 }
